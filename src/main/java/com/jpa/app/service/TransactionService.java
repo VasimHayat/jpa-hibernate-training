@@ -37,7 +37,7 @@ public class TransactionService {
     public static EOPerson assignAddressToPerson(long personPk, EOAddress eoAddress) throws Exception {
          EOPerson person = entityManager.find(EOPerson.class,personPk);
          if(person == null){
-             throw  new Exception("Long Person found ");
+             throw  new Exception("No Person found ");
          }
          eoAddress.eoPerson =person;
          person.eoAddressArray.add(eoAddress);
@@ -86,7 +86,7 @@ public class TransactionService {
     public static EOAddress addCityToAddress(long addressPk,EOCity city) throws Exception {
         EOAddress address = entityManager.find(EOAddress.class,addressPk);
         if(address == null){
-            throw  new Exception("Long Address found ");
+            throw  new Exception("No Address found ");
         }
         address.eoCity = city;
 
