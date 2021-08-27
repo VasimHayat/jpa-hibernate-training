@@ -7,7 +7,7 @@ public class EOAddress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long primaryKey;
+    private Long primaryKey;
 
     public String addressStr;
 
@@ -15,7 +15,7 @@ public class EOAddress {
     @JoinColumn(name = "EOCityID",nullable = false)
     public EOCity eoCity;
 
-    @ManyToOne
+    @ManyToOne()
     @JoinColumn(name = "EOPersonID")
     public EOPerson eoPerson;
 
@@ -25,6 +25,10 @@ public class EOAddress {
     }
 
     public EOAddress() { }
+
+    public Long primaryKey(){
+        return this.primaryKey;
+    }
 
 
     @Override

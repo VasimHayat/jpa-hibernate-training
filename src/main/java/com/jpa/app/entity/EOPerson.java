@@ -10,14 +10,14 @@ import java.util.Set;
 public class EOPerson {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long primaryKey;
+    private Long primaryKey;
 
     public String name;
 
     @Temporal(TemporalType.DATE)
     public Date dob;
 
-    @OneToMany(mappedBy = "eoPerson")
+    @OneToMany(mappedBy = "eoPerson", cascade = CascadeType.PERSIST)
     public Set<EOAddress> eoAddressArray = new HashSet<EOAddress>();
 
     public EOPerson(String name,Date dob){
@@ -27,6 +27,10 @@ public class EOPerson {
     }
 
     public EOPerson(){ }
+
+    public Long primaryKey(){
+        return  this.primaryKey;
+    }
 
     @Override
     public String toString() {

@@ -10,11 +10,16 @@ public class EOCity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long primaryKey;
+    private Long primaryKey;
     public String name;
     public String pinCode;
 
     public EOCity(){}
+
+    public Long primaryKey(){
+        return  this.primaryKey;
+    }
+
     public EOCity(String name,String pinCode){
         this.name = name;
         this.pinCode =pinCode;
